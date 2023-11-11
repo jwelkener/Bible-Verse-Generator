@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Verse Generator</title>
+</head>
+<body>
+    <h1>Bible Verse Generator</h1>
+
+    <form id="generateForm">
+        <label for="verseInput">Select Verse:</label>
+        <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
+
+        <label for="imageInput">Select Image URL:</label>
+        <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
+
+        <button type="button" id="generateImageButton">Generate Image</button>
+    </form>
+
+    <div id="generatedImageContainer">
+        <!-- The generated image will be displayed here -->
+    </div>
+
+    <script src="your_script.js"></script>
+</body>
+</html>
