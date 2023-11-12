@@ -32,3 +32,28 @@ document.getElementById('generateImageButton').addEventListener('click', functio
         alert('An error occurred while generating the image.');
     });
 });
+
+// Function to fetch a random Bible verse
+function getRandomVerse() {
+    // Implement logic to fetch a random verse from your database or external API
+    // ...
+
+    // For demo purposes, return a sample verse
+    return "John 1:1 - In the beginning was the Word, and the Word was with God, and the Word was God.";
+}
+
+document.getElementById('surpriseVerseButton').addEventListener('click', function() {
+    // Set a random verse in the input field
+    document.getElementById('verseInput').value = getRandomVerse();
+});
+
+document.getElementById('surpriseImageButton').addEventListener('click', function() {
+    // Implement logic to fetch a random image URL or choose from a predefined list
+    // ...
+
+    // For demo purposes, return a sample image URL
+    const sampleImageURL = "https://example.com/sample-image.jpg";
+    
+    // Set the random image URL in the input field
+    document.getElementById('imageInput').value = sampleImageURL;
+});

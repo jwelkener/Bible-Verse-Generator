@@ -12,17 +12,25 @@
     <form id="generateForm">
         <label for="verseInput">Select Verse:</label>
         <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
+        <button type="button" id="surpriseVerseButton">Surprise Me! (Verse)</button>
 
         <label for="imageInput">Select Image URL:</label>
         <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
 
-        <button type="button" id="generateImageButton">Generate Image</button>
+
+        <!-- Move the "Surprise Me!" button here -->
+        <button type="button" id="surpriseImageButton">Surprise Me! (Image)</button>
+
+        <br><br><br>
+
+        <button type="button" id="generateImageButton">Let's Go!</button>
     </form>
 
+    <!-- Move the generated image container here -->
     <div id="generatedImageContainer">
         <!-- The generated image will be displayed here -->
     </div>
 
-    <script src="your_script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
