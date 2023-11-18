@@ -1,124 +1,147 @@
-// app.js
+const imageInputField = document.getElementById('imageInput');
 
-// Function to fetch a random Bible verse
-function getRandomVerse() {
-    // Implement logic to fetch a random verse from your database or external API
-    // ...
+imageInputField.addEventListener('input', function () {
+    const imageInput = imageInputField.value;
+    const imageContainer = document.getElementById('imageContainer');
 
-    // For demo purposes, return a sample verse
-    return "John 1:1 - In the beginning was the Word, and the Word was with God, and the Word was God.";
-}
+    // Validate if the entered value is a valid URL
+    if (isValidUrl(imageInput)) {
+        // Clear previous content
+        imageContainer.innerHTML = '';
 
-// Function to fetch verse suggestions from the API
-function fetchVerseSuggestions(verseInput) {
-    // Make a request to the Bible API to search for verses
-    return fetch(`https://api.scripture.api.bible/v1/bibles/{YOUR_BIBLE_ID}/search?query=${verseInput}`)
-        .then(response => response.json())
-        .catch(error => {
-            console.error('Error fetching verse suggestions:', error);
-            throw error;
-        });
-}
+        // Create an image element
+        const imageElement = document.createElement('img');
+        imageElement.src = imageInput;
+        imageElement.alt = 'Selected Image';
 
-// Function to handle image generation
-function generateImage() {
-    // Get the selected verse and image URL
+        // Append the image element to the image container
+        imageContainer.appendChild(imageElement);
+    } else {
+        // Display an error message or handle invalid URL
+        imageContainer.innerHTML = '<p>Invalid URL</p>';
+    }
+});
+
+document.getElementById('generateImageButton').addEventListener('click', function () {
     const verseInput = document.getElementById('verseInput').value;
-    const imageInput = document.getElementById('imageInput').value;
+    const imageInput = imageInputField.value;
 
-    // Validate inputs (you may want to implement more robust validation)
+    // Basic input validation
     if (!verseInput || !imageInput) {
-        alert("Please enter both a verse and an image URL.");
+        alert('Please enter valid inputs for verse and image.');
         return;
     }
 
-    // Send the selected verse and image URL to the server for image generation
-    fetch('/create_image', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            verse: verseInput,
-            image_url: imageInput,
-        }),
-    })
-        .then(response => response.text())
-        .then(result => {
-            // Display the generated image or handle the result as needed
-            document.getElementById('generatedImageContainer').innerHTML = `<img src="${result}" alt="Generated Image">`;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred while generating the image.');
-        });
-}
+    // Display the verse directly based on user input
+    displayVerse(verseInput);
 
-// Event listener for generating image
-document.getElementById('generateImageButton').addEventListener('click', generateImage);
-
-// Event listener for surprising with a random verse
-document.getElementById('surpriseVerseButton').addEventListener('click', async function () {
-    try {
-        // Fetch a random verse and set it in the input field
-        const randomVerse = await getRandomVerse();
-        document.getElementById('verseInput').value = randomVerse;
-    } catch (error) {
-        console.error('Error fetching random verse:', error);
-        alert('An error occurred while fetching a random verse.');
-    }
+    // Make an API call to get the verse and display it on the image (uncomment if needed)
+    // fetchVerseAndDisplay(verseInput);
 });
 
-// Event listener for surprising with a random image
-document.getElementById('surpriseImageButton').addEventListener('click', async function () {
+// Function to display verse directly
+function displayVerse(userInput) {
+    const [book, reference] = userInput.split(' ', 2);
+    const [chapter, verse] = reference.split(':');
+
+    // Replace this with your actual logic to fetch the verse text
+    const verseText = getVerseText(book, parseInt(chapter), parseInt(verse));
+
+    if (verseText) {
+        const imageContainer = document.getElementById('imageContainer');
+
+        // Create a new div element for the centered verse
+        const centeredVerse = document.createElement('div');
+        centeredVerse.classList.add('centered-verse'); // Add styling class if needed
+        centeredVerse.innerText = `${verseText} - ${userInput}`;
+
+        // Clear previous content and append the centered verse to the image container
+        imageContainer.innerHTML = '';
+        imageContainer.appendChild(centeredVerse);
+    } else {
+        alert(`Verse not found for ${userInput}`);
+    }
+}
+
+
+function isValidUrl(url) {
     try {
-        // Fetch a random image URL or choose from a predefined list
-        // For demo purposes, return a sample image URL
-        const sampleImageURL = "https://example.com/sample-image.jpg";
+        new URL(url);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
+function displayVerse(userInput) {
+    const [book, reference] = userInput.split(' ', 2);
+    const [chapter, verse] = reference.split(':');
+
+    // Replace this with your actual logic to fetch the verse text
+    const verseText = getVerseText(book, parseInt(chapter), parseInt(verse));
+
+    if (verseText) {
+        alert(`${verseText} - ${userInput}`);
+    } else {
+        alert(`Verse not found for ${userInput}`);
+    }
+}
+
+function getVerseText(book, chapter, verse) {
+    // Replace this with your actual logic to fetch the verse text from the database
+    // For now, using a simple mapping based on the provided sample verses
+    const verseMapping = {
+        'John': { 3: { 16: 'For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish but have eternal life.' } }
+        // Add mappings for other sample verses...
+    };
+
+    return verseMapping[book]?.[chapter]?.[verse];
+}
+
+// document.getElementById('generateImageButton').addEventListener('click', function () {
+    //     const verseInput = document.getElementById('verseInput').value;
+    //     const imageInput = imageInputField.value;
     
-        // Set the random image URL in the input field
-        document.getElementById('imageInput').value = sampleImageURL;
-    } catch (error) {
-        console.error('Error fetching random image:', error);
-        alert('An error occurred while fetching a random image.');
-    }
-});
+    //     // Basic input validation
+    //     if (!verseInput || !imageInput) {
+    //         alert('Please enter valid inputs for verse and image.');
+    //         return;
+    //     }
+    
+    //     // Display the verse directly based on user input
+    //     displayVerse(verseInput);
+    
+    //     // Alternatively, you can uncomment the line below to make an API call to get the verse
+    //     // fetchVerseAndDisplay(verseInput);
+    // });
 
-// Event listener for live verse suggestions while typing
-document.getElementById('verseInput').addEventListener('input', async function () {
-    try {
-        // When the user types in the verse input field, fetch suggestions from the API
-        const verseInput = this.value;
-        const suggestions = await fetchVerseSuggestions(verseInput);
-        
-        // Process and display verse suggestions
-        displayVerseSuggestions(suggestions);
-    } catch (error) {
-        console.error('Error handling verse suggestions:', error);
-        alert('An error occurred while handling verse suggestions.');
-    }
-});
-
-function displayVerseSuggestions(data) {
-    // Process the data and update the UI with verse suggestions
-    // For simplicity, let's assume the API returns an array of verse suggestions
-    const suggestionsContainer = document.getElementById('verseSuggestions');
-
-    // Clear previous suggestions
-    suggestionsContainer.innerHTML = '';
-
-    // Display each suggestion
-    data.verses.forEach(verse => {
-        const suggestionItem = document.createElement('div');
-        suggestionItem.textContent = `${verse.reference}: ${verse.text}`;
-        suggestionItem.addEventListener('click', function () {
-            // Set the selected verse in the input field
-            document.getElementById('verseInput').value = verse.reference;
-
-            // Clear the suggestions
-            suggestionsContainer.innerHTML = '';
-        });
-
-        suggestionsContainer.appendChild(suggestionItem);
-    });
-}
+// Function to fetch verse using API call (uncomment if needed)
+// function fetchVerseAndDisplay(verseInput) {
+//     fetch('/get_verse', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//             verseInput: verseInput,
+//         }),
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         // Assume you have an image container with the ID 'imageContainer'
+//         const imageContainer = document.getElementById('imageContainer');
+//
+//         // Create a new div element for the centered verse
+//         const centeredVerse = document.createElement('div');
+//         centeredVerse.classList.add('centered-verse'); // Add styling class if needed
+//         centeredVerse.innerText = data.verse;
+//
+//         // Append the centered verse to the image container
+//         imageContainer.innerHTML = ''; // Clear previous content
+//         imageContainer.appendChild(centeredVerse);
+//     })
+//     .catch(error => {
+//         console.error('Error fetching verse:', error);
+//         alert('An error occurred while fetching the verse. Please try again.');
+//     });
+// }

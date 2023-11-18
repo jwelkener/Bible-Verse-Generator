@@ -1,36 +1,65 @@
-<!-- templates/index.html -->
+<!--index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Verse Generator</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bible Verse Generator</title>
+   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Bible Verse Generator</h1>
+   <h1>Bible Verse Image Generator</h1>
+   <h2>by John Welkener</h2> <br><br>
 
-    <form id="generateForm">
-        <label for="verseInput">Select Verse:</label>
-        <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
-        <button type="button" id="surpriseVerseButton">Surprise Me! (Verse)</button>
+   <div class="container">
+       <div class="input-container">
+           <form id="generateForm">
+               <label for="verseInput">Select Verse:</label><br>
+               <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
+           </form>
+       </div>
+     
+       <div class="input-container">
+           <form id="generateForm">
+               <label for="imageInput">Select Image:</label><br>
+               <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
+           </form>
+       </div>
+   </div>
 
-        <label for="imageInput">Select Image URL:</label>
-        <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
+   <br><br>
+   <button type="button" id="generateImageButton">Let's Go!</button>
 
+   <!-- Move the generated image container here -->
+   <br><br>
+   <div id="imageContainer">
+       <!-- The generated image will be displayed here -->
+   </div>
 
-        <!-- Move the "Surprise Me!" button here -->
-        <button type="button" id="surpriseImageButton">Surprise Me! (Image)</button>
-
-        <br><br><br>
-
-        <button type="button" id="generateImageButton">Let's Go!</button>
-    </form>
-
-    <!-- Move the generated image container here -->
-    <div id="generatedImageContainer">
-        <!-- The generated image will be displayed here -->
-    </div>
-
-    <script src="app.js"></script>
+   <script src="app.js"></script>
 </body>
 </html>
+
+
+
+
+ <!-- <button type="button" id="surpriseVerseButton">Surprise Me! (Verse)</button> -->
+
+ <!-- Move the "Surprise Me!" button here -->
+        <!-- <button type="button" id="surpriseImageButton">Surprise Me! (Image)</button>
+        <img src="https://drive.google.com/file/d/1TcRJb75g2V2G2_AcHmZ7-JxzPnmmZLLE/view?usp=sharing" alt="">
+        <br><br><br> -->
+
+
+<!-- <form id="getVerseForm">
+    <label for="bookInput">Book:</label>
+    <input type="text" id="bookInput" name="bookInput" placeholder="e.g., john" required>
+
+    <label for="chapterInput">Chapter:</label>
+    <input type="number" id="chapterInput" name="chapterInput" placeholder="e.g., 3" required>
+
+    <label for="verseInput">Verse:</label>
+    <input type="number" id="verseInput" name="verseInput" placeholder="e.g., 16" required>
+
+    <button type="button" id="getVerseButton">Get Verse</button>
+</form> -->
