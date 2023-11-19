@@ -98,6 +98,55 @@ function getVerseText(book, chapter, verse) {
     return verseMapping[book]?.[chapter]?.[verse];
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const backgroundContainer = document.getElementById("backgroundContainer");
+  
+    // Fetch backgrounds from JSON file
+    fetch("backgrounds.json")
+      .then(response => response.json())
+      .then(data => {
+        // Iterate through background URLs and create image elements
+        data.backgrounds.forEach(url => {
+          const img = document.createElement("img");
+          img.src = url;
+          img.classList.add("background-image"); // Add styling class if needed
+          img.addEventListener("click", function () {
+            // Handle image selection if needed
+            document.getElementById("imageInput").value = url;
+          });
+  
+          // Append the image to the container
+          backgroundContainer.appendChild(img);
+        });
+      })
+      .catch(error => console.error("Error fetching backgrounds:", error));
+  });
+
+// thumbnailContainer.js - for managing background thumbnails on start page
+
+// Number of images in the "images" folder
+const numberOfImages = 12;
+
+// Container for image thumbnails
+const thumbnailContainer = document.getElementById('thumbnailContainer');
+
+// Loop to generate image thumbnails dynamically
+for (let i = 1; i <= numberOfImages; i++) {
+    // Create image element
+    const image = document.createElement('img');
+
+    // Set image source (replace with your GitHub repository URL and image path)
+    image.src = `https://raw.githubusercontent.com/your-username/your-repo/main/images/image${i}.jpg`;
+
+    // Set other attributes as needed
+    image.alt = `Image ${i} Thumbnail`;
+    image.width = 100; // Set the desired width for the thumbnail
+
+    // Append image to the thumbnail container
+    thumbnailContainer.appendChild(image);
+}
+
+
 // document.getElementById('generateImageButton').addEventListener('click', function () {
     //     const verseInput = document.getElementById('verseInput').value;
     //     const imageInput = imageInputField.value;

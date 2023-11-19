@@ -1,4 +1,4 @@
-<!--index.html -->
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,22 +8,45 @@
    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-   <h1>Bible Verse Image Generator</h1>
+   <h1> Insta-Bible <br> Bible Verse Image Generator</h1>
    <h2>by John Welkener</h2> <br><br>
 
    <div class="container">
        <div class="input-container">
            <form id="generateForm">
-               <label for="verseInput">Select Verse:</label><br>
+               <label for="verseInput">Type Verse:</label><br>
                <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
+           </form>
+           <form id="generateForm">
+                <!-- Book Dropdown -->
+                <p>Or, select book, chapter, and verse below:</p>
+                <label for="bookSelect">Book:</label>
+                <select id="bookSelect" name="book">
+                    <option value="john">John</option>
+                    <!-- Add more books as needed -->
+                </select>
+        
+                <!-- Chapter Dropdown -->
+                <label for="chapterSelect">Chapter:</label>
+                <select id="chapterSelect" name="chapter">
+                    <!-- Add chapters dynamically using JavaScript -->
+                </select>
+        
+                <!-- Verse Dropdown -->
+                <label for="verseSelect">Verse:</label>
+                <select id="verseSelect" name="verse">
+                    <!-- Add verses dynamically using JavaScript -->
+                </select>
            </form>
        </div>
      
        <div class="input-container">
            <form id="generateForm">
-               <label for="imageInput">Select Image:</label><br>
+               <label for="imageInput">Paste Image URL:</label><br>
                <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
            </form>
+           <p>Or, select a background below:</p> <br>
+                <div id="thumbnailContainer"></div>
        </div>
    </div>
 
@@ -36,6 +59,9 @@
        <!-- The generated image will be displayed here -->
    </div>
 
+   <!-- Add script tags for necessary scripts -->
+   <script src="randomimage.js"></script>
+   <script src="randomverse.js"></script>
    <script src="app.js"></script>
 </body>
 </html>

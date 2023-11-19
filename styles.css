@@ -1,13 +1,16 @@
 /* styles.css */
+
+.imageContainer {
+	position: absolute
+}
 .element-spacing {
     margin-top: 20px;
 }
 
 /* Add more styles as needed */
 h1 {
-	font-family: Impact;
+	font-family: Lora;
 	font-size: 50px;
-	text-transform: uppercase;
 	text-align: center;
 	color:darkblue;
 	margin: 0;
