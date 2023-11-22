@@ -1,7 +1,26 @@
 /* styles.css */
 
+.centered-verse {
+	
+	font-family: 'Shrikhand', sans-serif;  /* Use Shrikhand font */
+    font-size: 15px;  /* Adjust the font size */
+    color: white;
+    /* text-shadow: 1px 1px 1px gray; */
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black; */
+    /* font-weight: bold; */
+    position: absolute;
+    text-align: center;
+	transform: 0, -50%;
+	vertical-align: middle;
+    width: 60%;
+	top: 70%;
+	left: 20%;
+  }
+
 .imageContainer {
-	position: absolute
+	position: relative;
+	width: 90%;
 }
 .element-spacing {
     margin-top: 20px;
@@ -38,6 +57,7 @@ img {
   }
 
   .scripture-text {
+
 	font-family: 'Shrikhand', sans-serif;  /* Use Shrikhand font */
     font-size: 40px;  /* Adjust the font size */
     text-transform: uppercase;
