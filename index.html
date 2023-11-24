@@ -17,28 +17,11 @@
                <label for="verseInput">Type Verse:</label><br>
                <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
            </form>
-           <form id="generateForm">
-                <!-- Book Dropdown -->
-                <p>Or, select book, chapter, and verse below:</p>
-                <label for="bookSelect">Book:</label>
-                <select id="bookSelect" name="book">
-                    <option value="john">John</option>
-        
-                    <!-- Add more books as needed -->
-                </select>
-        
-                <!-- Chapter Dropdown -->
-                <label for="chapterSelect">Chapter:</label>
-                <select id="chapterSelect" name="chapter">
-                    <!-- Add chapters dynamically using JavaScript -->
-                </select>
-        
-                <!-- Verse Dropdown -->
-                <label for="verseSelect">Verse:</label>
-                <select id="verseSelect" name="verse">
-                    <!-- Add verses dynamically using JavaScript -->
-                </select>
-           </form>
+           <p>Or, select a popular verse below:</p><br>
+                <div id="popularVerseBank">
+                    
+                </div>
+           
        </div>
      
        <div class="input-container">
@@ -46,7 +29,7 @@
                <label for="imageInput">Paste Image URL:</label><br>
                <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
            </form>
-           <p>Or, select a background below:</p> <br>
+           <p>Or, select a popular background below:</p> <br>
                 <div id="thumbnailContainer"></div>
        </div>
    </div>
@@ -57,12 +40,21 @@
    <!-- Move the generated image container here -->
    <br><br>
    <div id="imageContainer">
+    <img id="image" src="your-image.jpg" alt="Image">
        <!-- The generated image will be displayed here -->
-   </div>
+   </div> <br><br>
+
+   <div id="downloadDiv">
+    <!-- Add an image inside the div -->
+    
+</div>
+
+<!-- Button to trigger the download -->
+<button id="downloadButton">Download Image</button>
 
    <!-- Add script tags for necessary scripts -->
-   <script src="randomimage.js"></script>
-   <script src="randomverse.js"></script>
+   <!-- <script src="randomimage.js"></script>
+   <script src="randomverse.js"></script> -->
    <script src="app.js"></script>
 </body>
 </html>
@@ -70,7 +62,7 @@
 
 
 
- <!-- <button type="button" id="surpriseVerseButton">Surprise Me! (Verse)</button> -->
+ 
 
  <!-- Move the "Surprise Me!" button here -->
         <!-- <button type="button" id="surpriseImageButton">Surprise Me! (Image)</button>
@@ -90,3 +82,24 @@
 
     <button type="button" id="getVerseButton">Get Verse</button>
 </form> -->
+
+<!-- Book Dropdown
+<p>Or, select book, chapter, and verse below:</p>
+<label for="bookSelect">Book:</label>
+<select id="bookSelect" name="book">
+    <option value="john">John</option>
+
+    Add more books as needed
+</select>
+
+Chapter Dropdown
+<label for="chapterSelect">Chapter:</label>
+<select id="chapterSelect" name="chapter">
+    Add chapters dynamically using JavaScript
+</select>
+
+Verse Dropdown
+<label for="verseSelect">Verse:</label>
+<select id="verseSelect" name="verse">
+    Add verses dynamically using JavaScript -->
+<!-- </select> -->

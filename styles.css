@@ -20,8 +20,23 @@
 
 .imageContainer {
 	position: relative;
-	width: 90%;
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	object-fit: cover;
+
 }
+
+.img{
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	right: -9999px;
+	bottom: -9999px;
+	margin: auto;
+  }
+
 .element-spacing {
     margin-top: 20px;
 }
