@@ -1,106 +1,80 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Bible Verse Generator</title>
-   <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Verse Image Generator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
-   <h1> Insta-Bible <br> Bible Verse Image Generator</h1>
-   <h2>by John Welkener</h2> <br><br>
+    <h1> Insta-Bible <br> Bible Verse Image Generator</h1>
+    <h2>by John Welkener</h2> <br><br>
 
-   <div class="container">
-       <div class="input-container">
-           <form id="generateForm">
-               <label for="verseInput">Type Verse:</label><br>
-               <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
-           </form>
-           <p>Or, select a popular verse below:</p><br>
-                <div id="popularVerseBank">
-                    
+    <div class="container">
+        <div class="input-container">
+            <form id="verseForm">
+                <label for="verseInput">Type Verse:</label><br>
+                <input type="text" id="verseInput" name="verse" placeholder="e.g., John 3:16" required>
+            </form>
+            <p>Or, select a popular verse below:</p><br>
+            <div id="popularVerseBank" class="column-container">
+                <!-- Columns for popular verses -->
+                <div class="column">
+                    <p>John 3:16</p>
+                    <p>Philippians 4:13</p>
+                    <p>Jeremiah 29:11</p>
+                    <p>Psalm 23:1</p>
                 </div>
-           
-       </div>
-     
-       <div class="input-container">
-           <form id="generateForm">
-               <label for="imageInput">Paste Image URL:</label><br>
-               <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
-           </form>
-           <p>Or, select a popular background below:</p> <br>
-                <div id="thumbnailContainer"></div>
-       </div>
-   </div>
+                <div class="column">
+                    <p>Romans 8:28</p>
+                    <p>Proverbs 3:5</p>
+                    <p>Matthew 11:28</p>
+                    <p>1 Corinthians 13:4</p>
+                </div>
+                <div class="column">
+                    <p>Isaiah 40:31</p>
+                    <p>Ephesians 2:8</p>
+                    <p>Romans 13:10</p>
+                </div>
+            </div>
+        </div>
 
-   <br><br>
-   <button type="button" id="generateImageButton">Let's Go!</button>
+        <div class="input-container">
+            <form id="imageForm">
+                <label for="imageInput">Paste Image URL:</label><br>
+                <input type="text" id="imageInput" name="image" placeholder="Enter image URL" required>
+            </form>
+            <p>Or, select a popular background below:</p> <br>
+            <div id="thumbnailContainer">
+                <!-- Placeholder content for thumbnail images -->
 
-   <!-- Move the generated image container here -->
-   <br><br>
-   <div id="imageContainer">
-    <img id="img" src="your-image.jpg">
-       <!-- The generated image will be displayed here -->
-   </div> <br><br>
+            </div>
+        </div>
+    </div>
 
-   <div id="downloadDiv">
-    <!-- Add an image inside the div -->
-    
-</div>
+    <br><br>
+    <button type="button" id="generateImageButton">Let's Go!</button>
 
-<!-- Button to trigger the download -->
-<button id="downloadButton">Download Image</button>
+    <!-- Move the generated image container here -->
+    <br><br>
+    <div id="imageContainer">
+        <img id="img" src="your-image.jpg">
+        <!-- The generated image will be displayed here -->
+    </div> <br><br>
 
-   <!-- Add script tags for necessary scripts -->
-   <!-- <script src="randomimage.js"></script>
-   <script src="randomverse.js"></script> -->
-   <script src="app.js"></script>
-   <script src="thumbnails.js"></script>
+    <div id="downloadDiv">
+        <!-- Add an image inside the div -->
+    </div>
+
+    <!-- Button to trigger the download -->
+    <button id="downloadButton">Download Image</button>
+
+    <!-- Add script tags for necessary scripts -->
+    <script src="app.js"></script>
+    <script src="thumbnails.js"></script>
 </body>
+
 </html>
-
-
-
-
- 
-
- <!-- Move the "Surprise Me!" button here -->
-        <!-- <button type="button" id="surpriseImageButton">Surprise Me! (Image)</button>
-        <img src="https://drive.google.com/file/d/1TcRJb75g2V2G2_AcHmZ7-JxzPnmmZLLE/view?usp=sharing" alt="">
-        <br><br><br> -->
-
-
-<!-- <form id="getVerseForm">
-    <label for="bookInput">Book:</label>
-    <input type="text" id="bookInput" name="bookInput" placeholder="e.g., john" required>
-
-    <label for="chapterInput">Chapter:</label>
-    <input type="number" id="chapterInput" name="chapterInput" placeholder="e.g., 3" required>
-
-    <label for="verseInput">Verse:</label>
-    <input type="number" id="verseInput" name="verseInput" placeholder="e.g., 16" required>
-
-    <button type="button" id="getVerseButton">Get Verse</button>
-</form> -->
-
-<!-- Book Dropdown
-<p>Or, select book, chapter, and verse below:</p>
-<label for="bookSelect">Book:</label>
-<select id="bookSelect" name="book">
-    <option value="john">John</option>
-
-    Add more books as needed
-</select>
-
-Chapter Dropdown
-<label for="chapterSelect">Chapter:</label>
-<select id="chapterSelect" name="chapter">
-    Add chapters dynamically using JavaScript
-</select>
-
-Verse Dropdown
-<label for="verseSelect">Verse:</label>
-<select id="verseSelect" name="verse">
-    Add verses dynamically using JavaScript -->
-<!-- </select> -->

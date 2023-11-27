@@ -1,20 +1,21 @@
 /* styles.css */
 
 .centered-verse {
-    font-family: 'Shrikhand', sans-serif;
-    font-size: 30px; /* Double the font size */
-    color: white;
-    text-shadow: 1px 1px 1px gray;
-    position: absolute;
-    text-align: center;
-    transform: translate(0, -50%);
-    vertical-align: middle;
-    width: 60%;
-    top: 70%;
-    left: 20%;
-    /* Add a very thin black outline */
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: black;
+	font-family: 'Shrikhand', sans-serif;
+	font-size: 20px;
+	/* Double the font size */
+	color: white;
+	text-shadow: 1px 1px 1px gray;
+	position: absolute;
+	text-align: center;
+	transform: translate(0, -50%);
+	vertical-align: middle;
+	width: 60%;
+	top: 70%;
+	left: 20%;
+	/* Add a very thin black outline */
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: black;
 }
 
 
@@ -28,17 +29,29 @@
 
 }
 
-.img{
+.img {
 	position: absolute;
 	top: -9999px;
 	left: -9999px;
 	right: -9999px;
 	bottom: -9999px;
 	margin: auto;
-  }
+}
+
+
+.column-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.column {
+	flex: 0 0 33.33%;
+	padding: 0 15px;
+	box-sizing: border-box;
+}
 
 .element-spacing {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 /* Add more styles as needed */
@@ -46,7 +59,7 @@ h1 {
 	font-family: Lora;
 	font-size: 50px;
 	text-align: center;
-	color:darkblue;
+	color: darkblue;
 	margin: 0;
 }
 
@@ -62,46 +75,49 @@ body {
 
 input {
 	width: 70%;
-	margin:5px;
+	margin: 5px;
 }
 
 
 img {
 	height: 400px;
 	align-items: center;
-  }
+}
 
-  .scripture-text {
+.scripture-text {
 
-	font-family: 'Shrikhand', sans-serif;  /* Use Shrikhand font */
-    font-size: 40px;  /* Adjust the font size */
-    text-transform: uppercase;
-    color: white;
-    text-shadow: 2px 2px 4px black;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-    font-weight: bold;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-  }
+	font-family: 'Shrikhand', sans-serif;
+	/* Use Shrikhand font */
+	font-size: 40px;
+	/* Adjust the font size */
+	text-transform: uppercase;
+	color: white;
+	text-shadow: 2px 2px 4px black;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: black;
+	font-weight: bold;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
 
-  .container {
-    display: flex;
-    justify-content: space-between;
+.container {
+	display: flex;
+	justify-content: space-between;
 }
 
 .input-container {
-    width: 45%; /* Adjust as needed */
+	width: 45%;
+	/* Adjust as needed */
 }
 
-  .image {
+.image {
 	position: relative;
 	display: inline-block;
 	margin: 10px;
-  }
-  
-  .delete-button {
+}
+
+.delete-button {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -111,4 +127,4 @@ img {
 	border: none;
 	cursor: pointer;
 	/* display: none; */
-  }
+}

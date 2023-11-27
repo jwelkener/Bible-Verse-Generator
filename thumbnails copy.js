@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     const thumbnailContainer = document.getElementById('thumbnailContainer');
-    const imageContainer = document.getElementById('imageContainer');
 
     // Array of image paths
     const imagePaths = [
@@ -45,28 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
             imageElement.style.width = '70px';
             imageElement.style.height = '70px';
 
-            // Add click event listener to display the clicked image in the imageContainer
-            imageElement.addEventListener('click', function () {
-                displayClickedImage(croppedImageURL);
-            });
-
             // Append the image to the thumbnail container
             thumbnailContainer.appendChild(imageElement);
         });
     });
-
-    function displayClickedImage(imageURL) {
-        // Clear previous content
-        imageContainer.innerHTML = '';
-
-        // Create an image element for the clicked image
-        const clickedImageElement = document.createElement('img');
-        clickedImageElement.src = imageURL;
-        clickedImageElement.alt = 'Clicked Image';
-
-        // Append the clicked image to the image container
-        imageContainer.appendChild(clickedImageElement);
-    }
 });
 
 function cropToSquare(inputImage, callback) {
